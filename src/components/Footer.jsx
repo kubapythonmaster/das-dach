@@ -11,7 +11,7 @@ export default function Footer() {
             <span>DAS DACH</span>
           </p>
           <p className="footer-tag">
-            Profesjonalne wykonawstwo pokryć dachowych, blacharstwo, ciesielstwo i budownictwo. Sadki / Śmielin.
+            Firma dekarska — pokrycia dachowe, naprawy, blacharstwo i ciesielstwo. Sadki / Śmielin.
           </p>
           <a className="footer-phone" href={site.phoneHref}>
             {site.phone}
