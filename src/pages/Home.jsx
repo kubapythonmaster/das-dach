@@ -71,13 +71,13 @@ export default function Home() {
       <section className="hero">
         <HeroFade slides={heroSlides} />
         <div className="wrap hero-copy">
-          <p className="kicker">Sadki · kujawsko-pomorskie</p>
+          <p className="kicker">Śmielin · Sadki · gwarancja jakości</p>
           <h1>
-            Dach, który
-            <span>trzyma latami.</span>
+            DAS DACH
+            <span>Pokrycia. Blacha. Budowa.</span>
           </h1>
           <p className="lead">
-            Pokrycia dachowe, blacharstwo, ciesielstwo i budownictwo. Od więźby po komin na rąbek.
+            Profesjonalne wykonawstwo pokryć dachowych, blacharstwo, ciesielstwo i budownictwo.
           </p>
           <div className="actions">
             <a className="btn" href={site.phoneHref}>
@@ -103,12 +103,12 @@ export default function Home() {
           </figure>
           <div className="about-copy">
             <p className="kicker">O firmie</p>
-            <h2 id="o-firmie-title">Dekarstwo i budowa. Bez pośredników.</h2>
+            <h2 id="o-firmie-title">Dążymy do perfekcji na każdym dachu.</h2>
             <p>
-              DAS DACH to firma dekarska i budowlana z Sadków / Śmielina. Robimy pokrycia, blacharstwo, ciesielstwo i budowę — od fundamentów po gotowy dach.
+              DAS DACH to firma dekarska i budowlana ze Śmielina. Od skomplikowanych inwestycji po mniejsze zlecenia — pokrycia, blacharstwo, ciesielstwo i budowa domów.
             </p>
             <p>
-              Pracujemy pod konkretny budynek. Pokazujemy realizacje, mówimy wprost o zakresie i dojeżdżamy ustalić robotę. Jesteśmy w Cechu Dekarzy, Blacharzy i Cieśli.
+              Pracujemy pod konkretny budynek. Pokazujemy realizacje, mówimy wprost o zakresie. Jesteśmy w Ogólnopolskim Cechu Dekarzy, Blacharzy i Cieśli oraz w Polskim Stowarzyszeniu Dekarzy.
             </p>
             <ul className="about-points">
               <li>
@@ -204,6 +204,30 @@ export default function Home() {
             <li>
               <span>Serwis</span>
               <strong>naprawy · hydroizolacja</strong>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="section partners" id="wspolpraca" aria-labelledby="partners-title">
+        <div className="wrap">
+          <div className="section-head center-head">
+            <p className="kicker">Zaufanie</p>
+            <h2 id="partners-title">Współpracujemy solidnie</h2>
+            <p>Materiały i przynależność branżowa — jakość, nie hasła.</p>
+          </div>
+          <ul className="partner-grid">
+            <li>
+              <strong>BudMat</strong>
+              <span>Blachodachówka i pokrycia — stała współpraca przy dachach klientów.</span>
+            </li>
+            <li>
+              <strong>PSD</strong>
+              <span>Polskie Stowarzyszenie Dekarzy — oddział kujawsko-pomorski.</span>
+            </li>
+            <li>
+              <strong>WIECHA</strong>
+              <span>Ogólnopolski Cech Dekarzy, Blacharzy i Cieśli.</span>
             </li>
           </ul>
         </div>
