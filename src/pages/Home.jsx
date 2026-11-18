@@ -8,7 +8,7 @@ import WorkSlider from "../components/WorkSlider";
 import { site } from "../config";
 import { businessLd, faqs, faqLd, gallery, photos, services, websiteLd } from "../data";
 
-const heroSlides = [photos.domGotowy, photos.blachodachowka, photos.kominRabek, photos.rabekPanel];
+const heroSlides = [photos.domGotowy, photos.taras, photos.kominCegla, photos.dachNarzedzia];
 
 export default function Home() {
   const [open, setOpen] = useState(null);

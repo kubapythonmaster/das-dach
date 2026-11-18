@@ -314,8 +314,11 @@ a { color: var(--green); }
   inset: 0;
   z-index: 2;
   background:
-    linear-gradient(180deg, rgba(12, 26, 51, 0.62) 0%, rgba(12, 26, 51, 0.42) 42%, rgba(12, 26, 51, 0.82) 100%);
+    linear-gradient(180deg, rgba(12, 26, 51, 0.45) 0%, rgba(12, 26, 51, 0.28) 40%, rgba(12, 26, 51, 0.72) 100%);
   pointer-events: none;
+}
+.hero-bg img {
+  filter: contrast(1.04) saturate(1.05);
 }
 .hero-copy {
   position: relative;

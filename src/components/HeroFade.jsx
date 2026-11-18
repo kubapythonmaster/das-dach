@@ -32,7 +32,7 @@ export default function HeroFade({ slides }) {
         }
         return (
           <div key={photo.name} className={itemIndex === index ? "hero-slide is-active" : "hero-slide"}>
-            <Photo photo={photo} priority={itemIndex === 0} sizes="100vw" />
+            <Photo photo={photo} priority={itemIndex === 0} quality="high" sizes="100vw" />
           </div>
         );
       })}

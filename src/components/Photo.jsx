@@ -1,17 +1,18 @@
-export default function Photo({ photo, priority = false, sizes, className, alt }) {
+export default function Photo({ photo, priority = false, sizes, className, alt, quality = "auto" }) {
   if (!photo) return null;
+  const high = quality === "high" || priority;
   const hasMid = Boolean(photo.mid);
-  const srcSet = hasMid ? `${photo.mid} 900w, ${photo.src} ${Math.max(photo.w, 1200)}w` : undefined;
+  const srcSet = !high && hasMid ? `${photo.mid} 900w, ${photo.src} ${Math.max(photo.w, 1200)}w` : undefined;
   return (
     <img
       className={className}
-      src={hasMid && !priority ? photo.mid : photo.src}
+      src={photo.src}
       srcSet={srcSet}
       sizes={srcSet ? sizes || "100vw" : undefined}
       alt={alt || photo.alt}
       width={photo.w}
       height={photo.h}
-      loading={priority ? "eager" : "lazy"}
+      loading={priority || high ? "eager" : "lazy"}
       decoding="async"
       fetchpriority={priority ? "high" : "auto"}
       style={photo.focus ? { objectPosition: photo.focus } : undefined}
