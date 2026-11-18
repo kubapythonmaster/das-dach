@@ -5,7 +5,7 @@ import Lightbox from "../components/Lightbox";
 import Photo from "../components/Photo";
 import Seo from "../components/Seo";
 import WorkSlider from "../components/WorkSlider";
-import { homeHash, site } from "../config";
+import { site } from "../config";
 import { businessLd, faqs, faqLd, gallery, photos, services, websiteLd } from "../data";
 
 const heroSlides = [photos.domGotowy, photos.blachodachowka, photos.kominRabek, photos.rabekPanel];
@@ -122,18 +122,6 @@ export default function Home() {
         </div>
       </section>
 
-      <BandCta
-        id="cta-wycena"
-        kicker="Bezpłatna rozmowa"
-        title="Masz dach do zrobienia? Zadzwoń."
-        text="Zdjęcie dachu albo projektu wystarczy, żeby zacząć. Oddzwonimy i ustalimy zakres."
-        photo={photos.dachKominy}
-        href={site.phoneHref}
-        label={`Zadzwoń: ${site.phone}`}
-        secondaryHref={homeHash("kontakt")}
-        secondaryLabel="Napisz wiadomość"
-      />
-
       <section className="section band" id="uslugi" aria-labelledby="uslugi-title">
         <div className="wrap">
           <div className="section-head center-head">
@@ -177,19 +165,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <BandCta
-        id="cta-blacharstwo"
-        kicker="Blacharstwo · rąbek · kominy"
-        title="Obróbki, które zamykają dach."
-        text="Kominy na rąbek, rynny i detale przy ścianie — tu wychodzi różnica po pierwszej zimie."
-        photo={photos.rabekPanel}
-        href={site.phoneHref}
-        label={`Zadzwoń: ${site.phone}`}
-        secondaryHref={homeHash("realizacje")}
-        secondaryLabel="Zobacz realizacje"
-        align="right"
-      />
 
       <section className="section partners" id="wspolpraca" aria-labelledby="partners-title">
         <div className="wrap">

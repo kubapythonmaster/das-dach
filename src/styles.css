@@ -111,7 +111,7 @@ a { color: var(--green); }
 .lead { font-size: 1.12rem; line-height: 1.55; max-width: 36rem; color: var(--muted); }
 .quiet { color: var(--muted); max-width: 42rem; }
 .section { padding: 64px 0; scroll-margin-top: calc(var(--header) + 12px); }
-#cta-wycena, #cta-blacharstwo, #cta-kontakt, #uslugi, #realizacje, #faq, #kontakt, #o-firmie, #wspolpraca { scroll-margin-top: calc(var(--header) + 12px); }
+#cta-kontakt, #uslugi, #realizacje, #faq, #kontakt, #o-firmie, #wspolpraca { scroll-margin-top: calc(var(--header) + 12px); }
 .section-tight { padding-top: 40px; }
 .sheet-section { padding-top: 48px; }
 .band { background: var(--bg-2); }
