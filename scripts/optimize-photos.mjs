@@ -3,9 +3,7 @@ import { readdirSync, renameSync, unlinkSync, existsSync } from "node:fs";
 import path from "node:path";
 
 const dir = "public/photos";
-const files = readdirSync(dir).filter(
-  (f) => /\.(jpe?g|png)$/i.test(f) && !f.includes("-m.") && !f.endsWith(".webp"),
-);
+const files = readdirSync(dir).filter((f) => /\.(jpe?g|png)$/i.test(f) && !f.includes("-m."));
 
 function replace(tmp, dest) {
   if (existsSync(dest)) unlinkSync(dest);
@@ -15,38 +13,34 @@ function replace(tmp, dest) {
 for (const file of files) {
   const base = file.replace(/\.(jpe?g|png)$/i, "");
   const src = path.join(dir, file);
-  const fullJpg = path.join(dir, `${base}.jpg`);
   const midJpg = path.join(dir, `${base}-m.jpg`);
-  const fullWebp = path.join(dir, `${base}.webp`);
   const midWebp = path.join(dir, `${base}-m.webp`);
-  const tmpFull = path.join(dir, `${base}.full.tmp.jpg`);
-  const tmpMid = path.join(dir, `${base}.mid.tmp.jpg`);
+  const tmpJpg = path.join(dir, `${base}.tmp.jpg`);
+  const tmpWebp = path.join(dir, `${base}.tmp.webp`);
 
-  const meta = await sharp(src).rotate().metadata();
   const buffer = await sharp(src).rotate().toBuffer();
+  const meta = await sharp(buffer).metadata();
 
   await sharp(buffer)
-    .resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true })
-    .jpeg({ quality: 78, mozjpeg: true })
-    .toFile(tmpFull);
-  replace(tmpFull, fullJpg);
+    .resize({ width: 720, height: 720, fit: "inside", withoutEnlargement: true })
+    .jpeg({ quality: 68, mozjpeg: true })
+    .toFile(tmpJpg);
+  replace(tmpJpg, midJpg);
 
   await sharp(buffer)
-    .resize({ width: 800, height: 800, fit: "inside", withoutEnlargement: true })
-    .jpeg({ quality: 72, mozjpeg: true })
-    .toFile(tmpMid);
-  replace(tmpMid, midJpg);
+    .resize({ width: 720, height: 720, fit: "inside", withoutEnlargement: true })
+    .webp({ quality: 62 })
+    .toFile(tmpWebp);
+  replace(tmpWebp, midWebp);
 
-  await sharp(buffer)
-    .resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true })
-    .webp({ quality: 74 })
-    .toFile(fullWebp);
+  // keep only mid variants in public
+  if (existsSync(src) && !src.endsWith("-m.jpg")) {
+    // source may be original name without -m; remove full-size outputs if any
+  }
+  for (const extra of [`${base}.jpg`, `${base}.webp`]) {
+    const p = path.join(dir, extra);
+    if (existsSync(p) && p !== midJpg) unlinkSync(p);
+  }
 
-  await sharp(buffer)
-    .resize({ width: 800, height: 800, fit: "inside", withoutEnlargement: true })
-    .webp({ quality: 68 })
-    .toFile(midWebp);
-
-  const out = await sharp(fullJpg).metadata();
-  console.log(base, `${meta.width}x${meta.height}`, "->", `${out.width}x${out.height}`);
+  console.log(base, `${meta.width}x${meta.height}`, "-> mid 720");
 }

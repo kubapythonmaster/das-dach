@@ -1,12 +1,14 @@
 import { absUrl, assetUrl, site } from "./config";
 
 function shot(name, w, h, alt, caption, tags, focus = "center") {
+  const mid = assetUrl(`photos/${name}-m.jpg`);
+  const midWebp = assetUrl(`photos/${name}-m.webp`);
   return {
     name,
-    src: assetUrl(`photos/${name}.jpg`),
-    mid: assetUrl(`photos/${name}-m.jpg`),
-    webp: assetUrl(`photos/${name}.webp`),
-    midWebp: assetUrl(`photos/${name}-m.webp`),
+    src: mid,
+    mid,
+    webp: midWebp,
+    midWebp,
     w,
     h,
     alt,
@@ -53,15 +55,6 @@ export const photos = {
     ["pokrycia", "blacharstwo"],
     "center 40%"
   ),
-  rabekPanel: shot(
-    "rabek-panel",
-    768,
-    1024,
-    "Panele dachowe na rąbek stojący",
-    "Rąbek stojący — równe panele, czysta robota.",
-    ["blacharstwo", "rabek"],
-    "center"
-  ),
   rabekPole: shot(
     "rabek-pole",
     768,
@@ -80,15 +73,6 @@ export const photos = {
     ["blacharstwo", "kominy"],
     "center"
   ),
-  dachNarzedzia: shot(
-    "dach-narzedzia",
-    768,
-    1024,
-    "Prace dekarskie na dachu z narzędziami",
-    "Praca na dachu: komin, wyłaz, ławy i narzędzia na miejscu.",
-    ["dekarstwo"],
-    "center 35%"
-  ),
   taras: shot(
     "taras-drewno",
     1024,
@@ -101,14 +85,10 @@ export const photos = {
 };
 
 export const gallery = [
-  photos.domGotowy,
   photos.blachodachowka,
-  photos.kominRabek,
-  photos.dachKominy,
-  photos.rabekPanel,
-  photos.rabekPole,
   photos.kominCegla,
-  photos.dachNarzedzia,
+  photos.rabekPole,
+  photos.dachKominy,
   photos.taras,
 ];
 
@@ -195,7 +175,7 @@ export const services = [
     nav: "Naprawy dachów",
     summary: "Remonty, hydroizolacja, serwis kominów i pokryć.",
     lead: "Naprawiamy przecieki, wymieniamy zużyte fragmenty pokrycia i porządkujemy obróbki. Hydroizolacja i serwis — żeby dach znów był szczelny, nie „na chwilę”.",
-    photo: photos.dachNarzedzia,
+    photo: photos.kominCegla,
     blocks: [
       {
         type: "ul",

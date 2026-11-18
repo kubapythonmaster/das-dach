@@ -8,7 +8,7 @@ import WorkSlider from "../components/WorkSlider";
 import { site } from "../config";
 import { businessLd, faqs, faqLd, gallery, photos, services, websiteLd } from "../data";
 
-const heroSlides = [photos.domGotowy, photos.taras, photos.kominCegla];
+const heroSlides = [photos.domGotowy];
 
 export default function Home() {
   const [open, setOpen] = useState(null);
@@ -132,11 +132,8 @@ export default function Home() {
           <div className="svc-cats">
             {services.map((item, index) => (
               <article key={item.slug} className="svc-cat" id={item.slug}>
-                <div className="svc-cat-media">
-                  <Photo photo={item.photo} sizes="(max-width: 700px) 100vw, 360px" />
-                  <span className="svc-cat-n">{String(index + 1).padStart(2, "0")}</span>
-                </div>
                 <div className="svc-cat-copy">
+                  <span className="svc-cat-n">{String(index + 1).padStart(2, "0")}</span>
                   <h3>{item.nav}</h3>
                   <p>{item.summary}</p>
                   <ul className="svc-cat-points">
