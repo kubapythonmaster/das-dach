@@ -92,109 +92,45 @@ export const gallery = [
   photos.taras,
 ];
 
-export const services = [
-  {
-    slug: "pokrycia-dachowe",
-    nav: "Pokrycia dachowe",
-    summary: "Nowe dachy i wymiana pokryć. Blachodachówka, trapez, rąbek, gont.",
-    lead: "Kryjemy dachy od więźby po gotowe pokrycie. Remontujemy stare dachy i wymieniamy pokrycia na nowe — pod konkretny budynek, nie pod katalogowy pakiet.",
-    photo: photos.blachodachowka,
-    blocks: [
-      {
-        type: "ul",
-        items: [
-          "Wymiana i montaż pokryć dachowych",
-          "Blachodachówka i blacha trapezowa",
-          "Panele na rąbek stojący",
-          "Gonty bitumiczne i papa termozgrzewalna",
-          "Deskowanie, foliowanie, papowanie",
-          "Okna i wyłazy dachowe",
-        ],
-      },
-    ],
-  },
+export const mainService = {
+  slug: "dekarstwo",
+  nav: "Dekarstwo",
+  tag: "Główna specjalizacja",
+  summary: "Nowe pokrycia, wymiana dachów i naprawy — od blachodachówki po rąbek.",
+  lead: "Dekarstwo to nasz rdzeń. Kryjemy dachy, wymieniamy pokrycia i uszczelniamy to, co przecieka — pod konkretny budynek, nie pod katalogowy pakiet.",
+  photo: photos.blachodachowka,
+  points: [
+    "Montaż i wymiana pokryć dachowych",
+    "Blachodachówka, trapez, rąbek, gont",
+    "Naprawy przecieków i hydroizolacja",
+    "Okna dachowe, wyłazy, przeglądy",
+  ],
+};
+
+export const sideServices = [
   {
     slug: "blacharstwo",
     nav: "Blacharstwo",
-    summary: "Obróbki, kominy, orynnowanie. Detale, które trzymają szczelność.",
-    lead: "Blacharstwo to nie dodatek — to miejsce, gdzie dach albo trzyma, albo przecieka. Robimy obróbki kominów, rynny i detale pod pokrycie.",
-    photo: photos.kominRabek,
-    blocks: [
-      {
-        type: "ul",
-        items: [
-          "Obróbki blacharskie kominów (w tym na rąbek)",
-          "Montaż orynnowania",
-          "Obróbki przyścienne i koszowe",
-          "Parapety i elementy blaszane",
-          "Naprawy przecieków przy kominach i przejściach",
-        ],
-      },
-    ],
+    summary: "Obróbki kominów, rynny, kosze i detale, które trzymają szczelność.",
   },
   {
     slug: "ciesielstwo",
     nav: "Ciesielstwo",
-    summary: "Więźba, deskowanie, konstrukcje drewniane pod dach i taras.",
-    lead: "Stawiamy i naprawiamy więźby dachowe, deskujemy i przygotowujemy konstrukcję pod pokrycie. Robimy też elementy ciesielskie przy budynku — solidnie, pod pomiar.",
-    photo: photos.taras,
-    blocks: [
-      {
-        type: "ul",
-        items: [
-          "Montaż więźby dachowej",
-          "Deskowanie dachu",
-          "Naprawy i wzmocnienia konstrukcji",
-          "Konstrukcje drewniane tarasów i zadaszeń",
-          "Przygotowanie pod pokrycie i obróbki",
-        ],
-      },
-    ],
+    summary: "Więźba, deskowanie i konstrukcje drewniane pod dach oraz taras.",
   },
   {
     slug: "budownictwo",
     nav: "Budownictwo",
-    summary: "Domy od podstaw, garaże, budynki gospodarcze — od fundamentów w górę.",
-    lead: "Budujemy domy i obiekty gospodarcze. Od fundamentów, murów i stropów po kominy, izolacje i drenaże. Dach domykamy własną ekipą dekarską.",
-    photo: photos.domGotowy,
-    blocks: [
-      {
-        type: "ul",
-        items: [
-          "Fundamenty, mury, stropy",
-          "Kominy ceglane i systemowe",
-          "Izolacje, drenaże, ocieplenie fundamentów",
-          "Garaże i budynki gospodarcze",
-          "Mury oporowe",
-        ],
-      },
-    ],
-  },
-  {
-    slug: "naprawy-dachow",
-    nav: "Naprawy dachów",
-    summary: "Remonty, hydroizolacja, serwis kominów i pokryć.",
-    lead: "Naprawiamy przecieki, wymieniamy zużyte fragmenty pokrycia i porządkujemy obróbki. Hydroizolacja i serwis — żeby dach znów był szczelny, nie „na chwilę”.",
-    photo: photos.kominCegla,
-    blocks: [
-      {
-        type: "ul",
-        items: [
-          "Naprawa dachów i kominów",
-          "Uszczelnianie przecieków",
-          "Hydroizolacja",
-          "Wymiana uszkodzonych elementów pokrycia",
-          "Przeglądy przed sezonem",
-        ],
-      },
-    ],
+    summary: "Domy, garaże i obiekty gospodarcze — dach domykamy własną ekipą.",
   },
 ];
+
+export const services = [mainService, ...sideServices];
 
 export const faqs = [
   {
     q: "Czym się zajmujecie?",
-    a: "Pokrycia dachowe, blacharstwo, ciesielstwo i budownictwo. Od więźby i krycia dachu po obróbki kominów, rynny oraz budowę domów i garaży.",
+    a: "Głównie dekarstwem — pokrycia, wymiana dachów i naprawy. Do tego blacharstwo, ciesielstwo i budownictwo, żeby domknąć inwestycję jedną ekipą.",
   },
   {
     q: "Gdzie działacie?",
@@ -227,7 +163,7 @@ export function businessLd() {
     "@id": site.url ? `${site.url}/#business` : undefined,
     name: site.name,
     description:
-      "Profesjonalne wykonawstwo pokryć dachowych, blacharstwo, ciesielstwo i budownictwo. Sadki / Śmielin, kujawsko-pomorskie. Tel. 451 610 110.",
+      "Firma dekarska DAS DACH: pokrycia dachowe, naprawy, blacharstwo i ciesielstwo. Sadki / Śmielin, kujawsko-pomorskie. Tel. 451 610 110.",
     telephone: "+48451610110",
     sameAs: [site.facebook],
     areaServed: [
@@ -251,7 +187,7 @@ export function businessLd() {
         itemOffered: {
           "@type": "Service",
           name: item.nav,
-          description: item.lead,
+          description: item.lead || item.summary,
         },
       })),
     },

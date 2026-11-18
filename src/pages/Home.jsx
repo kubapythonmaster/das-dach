@@ -6,7 +6,7 @@ import Photo from "../components/Photo";
 import Seo from "../components/Seo";
 import WorkSlider from "../components/WorkSlider";
 import { site } from "../config";
-import { businessLd, faqs, faqLd, gallery, photos, services, websiteLd } from "../data";
+import { businessLd, faqs, faqLd, gallery, mainService, photos, services, sideServices, websiteLd } from "../data";
 
 const heroSlides = [photos.domGotowy];
 
@@ -56,8 +56,8 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="DAS DACH | Pokrycia dachowe, blacharstwo i ciesielstwo — Sadki"
-        description="Profesjonalne wykonawstwo pokryć dachowych, blacharstwo, ciesielstwo i budownictwo. Sadki / Śmielin. Tel. 451 610 110."
+        title="DAS DACH | Dekarstwo i pokrycia dachowe — Sadki / Śmielin"
+        description="Firma dekarska DAS DACH: pokrycia dachowe, naprawy, blacharstwo i ciesielstwo. Sadki / Śmielin. Tel. 451 610 110."
         path="/"
         jsonLd={[businessLd(), websiteLd(), faqLd(faqs)]}
       />
@@ -65,13 +65,13 @@ export default function Home() {
       <section className="hero">
         <HeroFade slides={heroSlides} />
         <div className="wrap hero-copy">
-          <p className="kicker">Śmielin · Sadki · gwarancja jakości</p>
+          <p className="kicker">Firma dekarska · Śmielin · Sadki</p>
           <h1>
             DAS DACH
-            <span>Pokrycia. Blacha. Budowa.</span>
+            <span>Dekarstwo. Szczelny dach.</span>
           </h1>
           <p className="lead">
-            Profesjonalne wykonawstwo pokryć dachowych, blacharstwo, ciesielstwo i budownictwo.
+            Główna specjalizacja: dekarstwo — nowe pokrycia, wymiana dachów i naprawy. Blacharstwo, ciesielstwo i budowa w jednej ekipie.
           </p>
           <div className="actions">
             <a className="btn" href={site.phoneHref}>
@@ -97,17 +97,17 @@ export default function Home() {
           </figure>
           <div className="about-copy">
             <p className="kicker">O firmie</p>
-            <h2 id="o-firmie-title">Dążymy do perfekcji na każdym dachu.</h2>
+            <h2 id="o-firmie-title">Dekarstwo to nasz warsztat.</h2>
             <p>
-              DAS DACH to firma dekarska i budowlana ze Śmielina. Od skomplikowanych inwestycji po mniejsze zlecenia — pokrycia, blacharstwo, ciesielstwo i budowa domów.
+              DAS DACH to firma dekarska ze Śmielina. Na dachu spędzamy najwięcej czasu — krycie, wymiana pokryć, naprawy i detale, od których zależy szczelność.
             </p>
             <p>
-              Pracujemy pod konkretny budynek. Pokazujemy realizacje, mówimy wprost o zakresie. Jesteśmy w Ogólnopolskim Cechu Dekarzy, Blacharzy i Cieśli oraz w Polskim Stowarzyszeniu Dekarzy.
+              Blacharstwo, ciesielstwo i budowę dokładamy, gdy inwestycja tego wymaga. Jesteśmy w Ogólnopolskim Cechu Dekarzy, Blacharzy i Cieśli oraz w Polskim Stowarzyszeniu Dekarzy.
             </p>
             <ul className="about-points">
               <li>
-                <strong>Zakres</strong>
-                <span>Pokrycia · blacharstwo · ciesielstwo · budowa</span>
+                <strong>Specjalizacja</strong>
+                <span>Dekarstwo · pokrycia · naprawy dachów</span>
               </li>
               <li>
                 <strong>Baza</strong>
@@ -124,33 +124,48 @@ export default function Home() {
 
       <section className="section band" id="uslugi" aria-labelledby="uslugi-title">
         <div className="wrap">
-          <div className="section-head center-head">
+          <div className="section-head">
             <p className="kicker">Usługi</p>
-            <h2 id="uslugi-title">Kategorie robót</h2>
-            <p>Wybierz zakres — od pokrycia i blachy po więźbę, budowę i naprawy.</p>
+            <h2 id="uslugi-title">Co robimy na dachu i przy domu</h2>
+            <p>Najpierw dekarstwo — reszta usług domyka inwestycję.</p>
           </div>
-          <div className="svc-cats">
-            {services.map((item, index) => (
-              <article key={item.slug} className="svc-cat" id={item.slug}>
-                <div className="svc-cat-copy">
-                  <span className="svc-cat-n">{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{item.nav}</h3>
-                  <p>{item.summary}</p>
-                  <ul className="svc-cat-points">
-                    {item.blocks
-                      .filter((block) => block.type === "ul")
-                      .flatMap((block) => block.items)
-                      .slice(0, 3)
-                      .map((line) => (
-                        <li key={line}>{line}</li>
-                      ))}
-                  </ul>
+
+          <article className="svc-hero" id={mainService.slug}>
+            <div className="svc-hero-copy">
+              <p className="svc-hero-tag">{mainService.tag}</p>
+              <h3>{mainService.nav}</h3>
+              <p className="svc-hero-lead">{mainService.lead}</p>
+              <ul className="svc-hero-points">
+                {mainService.points.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+              <a className="btn" href={site.phoneHref}>
+                Zapytaj o dach: {site.phone}
+              </a>
+            </div>
+            <figure className="svc-hero-media">
+              <Photo photo={mainService.photo} sizes="(max-width: 900px) 100vw, 42vw" />
+              <figcaption>{mainService.summary}</figcaption>
+            </figure>
+          </article>
+
+          <div className="svc-more">
+            <p className="svc-more-label">Dodatkowo w ofercie</p>
+            <ul className="svc-rail">
+              {sideServices.map((item, index) => (
+                <li key={item.slug} id={item.slug}>
+                  <span className="svc-rail-n">{String(index + 1).padStart(2, "0")}</span>
+                  <div>
+                    <strong>{item.nav}</strong>
+                    <p>{item.summary}</p>
+                  </div>
                   <a className="svc-call" href={site.phoneHref}>
-                    Zapytaj o {item.nav.toLowerCase()}
+                    Zapytaj
                   </a>
-                </div>
-              </article>
-            ))}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

@@ -456,63 +456,128 @@ a { color: var(--green); }
 }
 .about-points span { color: var(--ink); font-size: 1rem; }
 
-.svc-cats {
+.svc-hero {
   display: grid;
-  gap: 14px;
+  gap: 28px;
+  padding: 8px 0 36px;
+  border-bottom: 1px solid var(--line);
 }
-.svc-cat {
-  background: #fff;
-  border: 1px solid var(--line);
-}
-.svc-cat-n {
-  display: inline-block;
-  font-family: var(--display);
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  color: var(--navy);
-  margin-bottom: 8px;
-}
-.svc-cat-copy {
-  padding: 20px 18px 22px;
-}
-.svc-cat-copy h3 {
-  margin: 0 0 8px;
-  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+.svc-hero-tag {
+  margin: 0 0 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--navy);
 }
-.svc-cat-copy > p {
-  color: var(--muted);
-  margin: 0 0 12px;
-  font-size: 0.98rem;
-}
-.svc-cat-points {
-  list-style: none;
+.svc-hero-copy h3 {
   margin: 0 0 14px;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--navy);
+  line-height: 1;
+}
+.svc-hero-lead {
+  margin: 0 0 18px;
+  color: var(--muted);
+  max-width: 36rem;
+  font-size: 1.05rem;
+}
+.svc-hero-points {
+  list-style: none;
+  margin: 0 0 24px;
   padding: 0;
+  display: grid;
+  gap: 10px;
 }
-.svc-cat-points li {
+.svc-hero-points li {
   position: relative;
-  padding-left: 12px;
-  margin: 6px 0;
+  padding-left: 18px;
   color: var(--ink);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
-.svc-cat-points li::before {
+.svc-hero-points li::before {
   content: "";
-  width: 5px;
-  height: 1.5px;
-  background: var(--navy);
   position: absolute;
   left: 0;
-  top: 0.7em;
+  top: 0.72em;
+  width: 8px;
+  height: 1.5px;
+  background: var(--navy);
+}
+.svc-hero-media {
+  margin: 0;
+}
+.svc-hero-media picture,
+.svc-hero-media img {
+  width: 100%;
+  height: clamp(220px, 48vw, 420px);
+  object-fit: cover;
+  display: block;
+}
+.svc-hero-media figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.svc-more {
+  padding-top: 34px;
+}
+.svc-more-label {
+  margin: 0 0 18px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.svc-rail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.svc-rail li {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr auto;
+  gap: 12px 16px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.svc-rail-n {
+  font-family: var(--display);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+  padding-top: 3px;
+}
+.svc-rail strong {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.svc-rail p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 34rem;
+  font-size: 0.98rem;
 }
 .svc-call {
   display: inline-flex;
+  align-self: center;
   color: var(--navy);
   font-weight: 700;
   text-decoration: none;
   border-bottom: 1px solid rgba(18, 48, 90, 0.3);
   padding-bottom: 2px;
+  white-space: nowrap;
 }
 .svc-call:hover { border-bottom-color: var(--navy); }
 .privacy-line {
@@ -1387,12 +1452,21 @@ a { color: var(--green); }
   .about-media picture,
   .about-media img { height: min(620px, 68vh); transition: transform 500ms ease; }
   .about-split:hover .about-media img { transform: scale(1.02); }
-  .svc-cats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+  .svc-hero {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+    padding: 12px 0 48px;
   }
-  .svc-cat:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
+  .svc-hero-media picture,
+  .svc-hero-media img {
+    height: min(520px, 58vh);
+  }
+  .svc-rail li {
+    grid-template-columns: 3rem 1fr auto;
+    gap: 18px 28px;
+    padding: 24px 0;
+    align-items: center;
   }
   .work-head {
     grid-template-columns: 1fr auto;
