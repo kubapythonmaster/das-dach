@@ -8,7 +8,7 @@ import WorkSlider from "../components/WorkSlider";
 import { site } from "../config";
 import { businessLd, faqs, faqLd, gallery, photos, services, websiteLd } from "../data";
 
-const heroSlides = [photos.domGotowy, photos.taras, photos.kominCegla, photos.dachNarzedzia];
+const heroSlides = [photos.domGotowy, photos.taras, photos.kominCegla];
 
 export default function Home() {
   const [open, setOpen] = useState(null);
@@ -126,41 +126,33 @@ export default function Home() {
         <div className="wrap">
           <div className="section-head center-head">
             <p className="kicker">Usługi</p>
-            <h2 id="uslugi-title">Co robimy</h2>
-            <p>Pokrycia, blacha, więźba i budowa — kliknij pozycję, żeby zobaczyć zakres.</p>
+            <h2 id="uslugi-title">Kategorie robót</h2>
+            <p>Wybierz zakres — od pokrycia i blachy po więźbę, budowę i naprawy.</p>
           </div>
-          <div className="svc-list">
+          <div className="svc-cats">
             {services.map((item, index) => (
-              <details key={item.slug} className="svc-row" id={item.slug}>
-                <summary>
-                  <span className="svc-n">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="svc-main">
-                    <span className="svc-name">{item.nav}</span>
-                    <span className="svc-sum">{item.summary}</span>
-                  </span>
-                </summary>
-                <div className="svc-body">
-                  <div className="svc-body-text">
-                    <p>{item.lead}</p>
-                    {item.blocks.some((block) => block.type === "ul") && (
-                      <ul className="ticks">
-                        {item.blocks
-                          .filter((block) => block.type === "ul")
-                          .flatMap((block) => block.items)
-                          .map((line) => (
-                            <li key={line}>{line}</li>
-                          ))}
-                      </ul>
-                    )}
-                    <a className="svc-call" href={site.phoneHref}>
-                      Zadzwoń: {site.phone}
-                    </a>
-                  </div>
-                  <figure className="svc-body-photo">
-                    <Photo photo={item.photo} sizes="(max-width: 900px) 100vw, 280px" />
-                  </figure>
+              <article key={item.slug} className="svc-cat" id={item.slug}>
+                <div className="svc-cat-media">
+                  <Photo photo={item.photo} sizes="(max-width: 700px) 100vw, 360px" />
+                  <span className="svc-cat-n">{String(index + 1).padStart(2, "0")}</span>
                 </div>
-              </details>
+                <div className="svc-cat-copy">
+                  <h3>{item.nav}</h3>
+                  <p>{item.summary}</p>
+                  <ul className="svc-cat-points">
+                    {item.blocks
+                      .filter((block) => block.type === "ul")
+                      .flatMap((block) => block.items)
+                      .slice(0, 3)
+                      .map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                  </ul>
+                  <a className="svc-call" href={site.phoneHref}>
+                    Zapytaj o {item.nav.toLowerCase()}
+                  </a>
+                </div>
+              </article>
             ))}
           </div>
         </div>

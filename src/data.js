@@ -5,6 +5,8 @@ function shot(name, w, h, alt, caption, tags, focus = "center") {
     name,
     src: assetUrl(`photos/${name}.jpg`),
     mid: assetUrl(`photos/${name}-m.jpg`),
+    webp: assetUrl(`photos/${name}.webp`),
+    midWebp: assetUrl(`photos/${name}-m.webp`),
     w,
     h,
     alt,
