@@ -1,12 +1,13 @@
 export default function Photo({ photo, priority = false, sizes, className, alt }) {
   if (!photo) return null;
-  const srcSet = photo.w > 1000 ? `${photo.mid} 1000w, ${photo.src} ${photo.w}w` : undefined;
+  const hasMid = Boolean(photo.mid);
+  const srcSet = hasMid ? `${photo.mid} 900w, ${photo.src} ${Math.max(photo.w, 1200)}w` : undefined;
   return (
     <img
       className={className}
-      src={photo.src}
+      src={hasMid && !priority ? photo.mid : photo.src}
       srcSet={srcSet}
-      sizes={srcSet ? sizes : undefined}
+      sizes={srcSet ? sizes || "100vw" : undefined}
       alt={alt || photo.alt}
       width={photo.w}
       height={photo.h}

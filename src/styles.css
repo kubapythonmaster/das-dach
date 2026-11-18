@@ -111,7 +111,7 @@ a { color: var(--green); }
 .lead { font-size: 1.12rem; line-height: 1.55; max-width: 36rem; color: var(--muted); }
 .quiet { color: var(--muted); max-width: 42rem; }
 .section { padding: 64px 0; scroll-margin-top: calc(var(--header) + 12px); }
-#blacharstwo-highlight, #uslugi, #realizacje, #faq, #kontakt, #o-firmie { scroll-margin-top: calc(var(--header) + 12px); }
+#cta-wycena, #cta-blacharstwo, #cta-kontakt, #uslugi, #realizacje, #faq, #kontakt, #o-firmie, #wspolpraca { scroll-margin-top: calc(var(--header) + 12px); }
 .section-tight { padding-top: 40px; }
 .sheet-section { padding-top: 48px; }
 .band { background: var(--bg-2); }
@@ -886,6 +886,87 @@ a { color: var(--green); }
 
 .cta { padding: 56px 0 88px; }
 .cta h2 { max-width: 14em; }
+
+.band-cta {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(320px, 52vw, 460px);
+  display: grid;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+.band-cta-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.band-cta-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.band-cta-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(12, 26, 51, 0.92) 0%, rgba(12, 26, 51, 0.78) 42%, rgba(12, 26, 51, 0.45) 100%);
+}
+.band-cta--right .band-cta-shade {
+  background:
+    linear-gradient(270deg, rgba(12, 26, 51, 0.92) 0%, rgba(12, 26, 51, 0.78) 42%, rgba(12, 26, 51, 0.4) 100%);
+}
+.band-cta-copy {
+  position: relative;
+  z-index: 1;
+  padding: 56px 0;
+  max-width: 36rem;
+}
+.band-cta--right .band-cta-copy {
+  margin-left: auto;
+  text-align: right;
+}
+.band-cta--right .actions { justify-content: flex-end; }
+.band-cta .kicker { color: #9eb6d6; }
+.band-cta h2 {
+  color: #fff;
+  margin-bottom: 0.4em;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+}
+.band-cta p {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 34rem;
+  margin-bottom: 18px;
+}
+.band-cta--right p { margin-left: auto; }
+.band-cta .btn-ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.band-cta .btn-ghost:hover {
+  background: #fff;
+  color: var(--navy);
+  border-color: #fff;
+}
+@media (max-width: 719px) {
+  .band-cta {
+    min-height: 360px;
+    text-align: left;
+  }
+  .band-cta-shade,
+  .band-cta--right .band-cta-shade {
+    background: linear-gradient(180deg, rgba(12, 26, 51, 0.55) 0%, rgba(12, 26, 51, 0.88) 55%, rgba(12, 26, 51, 0.94) 100%);
+  }
+  .band-cta--right .band-cta-copy {
+    margin-left: 0;
+    text-align: left;
+  }
+  .band-cta--right .actions,
+  .band-cta .actions { justify-content: stretch; }
+  .band-cta .actions .btn { flex: 1 1 100%; }
+  .band-cta--right p { margin-left: 0; }
+  .band-cta-copy { padding: 48px 0 56px; }
+}
 .phone-xl {
   display: inline-block;
   margin: 4px 0 12px;

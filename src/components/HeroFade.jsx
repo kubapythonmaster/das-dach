@@ -25,11 +25,17 @@ export default function HeroFade({ slides }) {
 
   return (
     <div className="hero-bg" aria-hidden="true">
-      {slides.map((photo, itemIndex) => (
-        <div key={photo.name} className={itemIndex === index ? "hero-slide is-active" : "hero-slide"}>
-          <Photo photo={photo} priority={itemIndex === 0} sizes="100vw" />
-        </div>
-      ))}
+      {slides.map((photo, itemIndex) => {
+        const near = Math.abs(itemIndex - index) <= 1 || (index === 0 && itemIndex === slides.length - 1);
+        if (!near && itemIndex !== 0) {
+          return <div key={photo.name} className="hero-slide" />;
+        }
+        return (
+          <div key={photo.name} className={itemIndex === index ? "hero-slide is-active" : "hero-slide"}>
+            <Photo photo={photo} priority={itemIndex === 0} sizes="100vw" />
+          </div>
+        );
+      })}
       <div className="hero-shade" />
     </div>
   );
