@@ -168,23 +168,50 @@ export default function Home() {
 
       <section className="section partners" id="wspolpraca" aria-labelledby="partners-title">
         <div className="wrap">
-          <div className="section-head center-head">
+          <div className="partners-intro">
             <p className="kicker">Zaufanie</p>
             <h2 id="partners-title">Współpracujemy solidnie</h2>
             <p>Materiały i przynależność branżowa — jakość, nie hasła.</p>
           </div>
-          <ul className="partner-grid">
+          <ul className="partner-rail">
             <li>
-              <strong>BudMat</strong>
-              <span>Blachodachówka i pokrycia — stała współpraca przy dachach klientów.</span>
+              <span className="partner-mark" aria-hidden="true">
+                <svg viewBox="0 0 48 32" fill="none">
+                  <path d="M4 22 L24 6 L44 22" stroke="currentColor" strokeWidth="2.2" />
+                  <path d="M10 22 V28 H38 V22" stroke="currentColor" strokeWidth="2.2" />
+                </svg>
+              </span>
+              <div>
+                <p className="partner-label">Producent</p>
+                <strong>BudMat</strong>
+                <span>Blachodachówka i pokrycia — stała współpraca przy dachach klientów.</span>
+              </div>
             </li>
             <li>
-              <strong>PSD</strong>
-              <span>Polskie Stowarzyszenie Dekarzy — oddział kujawsko-pomorski.</span>
+              <span className="partner-mark" aria-hidden="true">
+                <svg viewBox="0 0 48 32" fill="none">
+                  <circle cx="24" cy="16" r="11" stroke="currentColor" strokeWidth="2.2" />
+                  <path d="M18 17 L22 21 L31 11" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <div>
+                <p className="partner-label">Stowarzyszenie</p>
+                <strong>PSD</strong>
+                <span>Polskie Stowarzyszenie Dekarzy — oddział kujawsko-pomorski.</span>
+              </div>
             </li>
             <li>
-              <strong>WIECHA</strong>
-              <span>Ogólnopolski Cech Dekarzy, Blacharzy i Cieśli.</span>
+              <span className="partner-mark" aria-hidden="true">
+                <svg viewBox="0 0 48 32" fill="none">
+                  <path d="M8 24 L24 8 L40 24 Z" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round" />
+                  <path d="M24 14 V24" stroke="currentColor" strokeWidth="2.2" />
+                </svg>
+              </span>
+              <div>
+                <p className="partner-label">Cech</p>
+                <strong>WIECHA</strong>
+                <span>Ogólnopolski Cech Dekarzy, Blacharzy i Cieśli.</span>
+              </div>
             </li>
           </ul>
         </div>

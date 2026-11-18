@@ -651,35 +651,98 @@ a { color: var(--green); }
   line-height: 1.1;
 }
 
-.partners { background: var(--bg-2); }
-.partner-grid {
+.partners {
+  background:
+    linear-gradient(180deg, #fff 0%, #f3f6fa 100%);
+  border-block: 1px solid var(--line);
+}
+.partners-intro {
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto 36px;
+}
+.partners-intro p:last-child {
+  color: var(--muted);
+  margin: 0;
+}
+.partner-rail {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 14px;
+  gap: 0;
+  border-top: 1px solid var(--line);
 }
-.partner-grid li {
-  border: 1px solid var(--line);
-  background: var(--bg);
-  padding: 22px 20px;
+.partner-rail li {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
 }
-.partner-grid strong {
-  display: block;
-  font-family: var(--display);
-  font-size: 1.35rem;
-  letter-spacing: 0.04em;
+.partner-mark {
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  color: var(--navy);
+  background: rgba(18, 48, 90, 0.06);
+  border: 1px solid rgba(18, 48, 90, 0.14);
+}
+.partner-mark svg {
+  width: 1.7rem;
+  height: 1.15rem;
+}
+.partner-label {
+  margin: 0 0 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--navy);
-  margin-bottom: 8px;
 }
-.partner-grid span {
+.partner-rail strong {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 2.5vw, 1.7rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.partner-rail span {
+  display: block;
   color: var(--muted);
   font-size: 0.98rem;
-  line-height: 1.45;
+  line-height: 1.5;
+  max-width: 28ch;
 }
-@media (min-width: 720px) {
-  .partner-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+@media (min-width: 860px) {
+  .partners-intro { margin-bottom: 44px; }
+  .partner-rail {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 0;
+    gap: 0;
+  }
+  .partner-rail li {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 8px 28px;
+    border-bottom: 0;
+    border-left: 1px solid var(--line);
+  }
+  .partner-rail li:first-child {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .partner-rail li:last-child { padding-right: 0; }
+  .partner-mark {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+  .partner-rail span { max-width: 26ch; }
 }
 
 .work-section { padding-bottom: 28px; overflow: hidden; background: var(--bg); }
